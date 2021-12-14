@@ -17,8 +17,10 @@
           </td>
           <td><%= link_to @index.title, book_path(@index) %></td>
           <td><%= @index.body %></td>
-          <td><%= link_to 'Edit', edit_book_path(@index), class: "btn btn-sm btn-success edit_book_#{@index.id}" %></td>
-          <td><%= link_to 'Destroy', book_path(@index), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@index.id}"%></td>
+          <% if @index.user == current_user %>
+            <td><%= link_to 'Edit', edit_book_path(@index), class: "btn btn-sm btn-success edit_book_#{@index.id}" %></td>
+            <td><%= link_to 'Destroy', book_path(@index), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@index.id}"%></td>
+          <% end %>
         </tr>
       </table>
     </div>
