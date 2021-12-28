@@ -1,28 +1,17 @@
 class SearchsController < ApplicationController
 
-  def search
-    @model = params["model"]
-    @content = params["content"]
-    @method = params["method"]
-    @records = search_for(@model, @content, @method)
-  end
+def search
+  @range = params[:range]
+  search = params[:search]
+  word = params[:word]
 
-  private
-
-  def search_for(model, content, method)
-    if model == 'user'
-      if model == 'perfect'
-        User.where(name: content)
-      else
-        User.where('name LIKE ?', '%'+content+'%')
-      end
-    elsif model == 'book'
-      if method == 'perfect'
-        Book.where(title: content)
-      else
-        Book.where('title LIKE ?', '%'+content+'%')
-      end
-    end
+  if @range == '1'
+    @user = User.search(search,word)
+  elsif @range == '2'
+    @book = Book.search(search,word)
+  else
+    redirect_back(fallback_location: root_path)
   end
+end
 
 end
