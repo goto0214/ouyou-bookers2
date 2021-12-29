@@ -55,7 +55,7 @@
           <% end %>
         <% end %>
       </div>
-      <div>
+      <div class="mt-4">
         <%= form_with(model:[@index, @book_comment], local: true) do |f| %>
           <%= f.text_area :comment, rows:'5', placeholder: "コメント", class: "form-control" %>
           <%= f.submit "送信", class: "mt-3" %>

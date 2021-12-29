@@ -14,7 +14,7 @@
   </tr>
   <tr>
     <th>
-      フォロー数：
+      フォロー:
     </th>
     <th>
       <%= link_to user_followings_path(user) do %>
@@ -24,7 +24,7 @@
   </tr>
   <tr>
     <th>
-      フォロワー数：
+      フォロワー:
     </th>
     <th>
       <%= link_to user_followers_path(user) do %>
@@ -36,12 +36,14 @@
     <% if current_user.following?(user) %>
     <tr>
       <th>
-        <%= link_to "フォロー外す", user_relationship_path(user.id), method: :delete %>
+        <%= link_to "unfollow", user_relationship_path(user.id), method: :delete, class: "fas fa-user-minus text-light btn btn-danger" %>
       </th>
+      <th></th>
     <% else %>
       <th>
-        <%= link_to "フォローする", user_relationships_path(user.id),method: :post %>
+        <%= link_to "follow", user_relationships_path(user.id),method: :post, class: "fas fa-user-plus text-light btn btn-info" %>
       </th>
+      <th></th>
     </tr>
     <% end %>
   <% end %>
