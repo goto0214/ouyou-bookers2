@@ -16,11 +16,11 @@
         <% if user != current_user %>
           <% if current_user.following?(user) %>
           <td>
-            <%= link_to "フォロー外す", user_relationship_path(user.id,current_user.id),method: :delete %>
+            <%= link_to "フォロー外す", user_relationship_path(user.id,current_user.id),method: :delete, class: "fas fa-user-minus" %>
           </td>
           <% else %>
           <td>
-            <%= link_to "フォローする", user_relationships_path(user.id),method: :post %>
+            <%= link_to "フォローする", user_relationships_path(user.id),method: :post, class: "fas fa-user-plus" %>
           </td>
           <% end %>
         <% else %>
