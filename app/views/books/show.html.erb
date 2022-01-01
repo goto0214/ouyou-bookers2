@@ -18,7 +18,7 @@
           <td><%= link_to @index.title, book_path(@index) %></td>
           <td><%= @index.body %></td>
           <td id="favorite_buttons_<%= @index.id %>">
-            <%= render "favorites/favorite", book: @index %>
+            <%= render "favorites/favorite-btn", book: @index %>
           </td>
           <td>コメント件数：<%= @index.book_comments.count %></td>
           <% if @index.user == current_user %>
