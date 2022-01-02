@@ -8,6 +8,9 @@
     </div>
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
+      <%= link_to "新着順", books_path(sort_create: "true") %>
+      |
+      <%= link_to "評価高い順", books_path(sort_a: "true") %>
       <%= render 'index', books: @books%>
     </div>
   </div>
