@@ -8,6 +8,12 @@
     <%= f.label :opinion %>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
+  <div class="form-group">
+    <%= f.label :category %>
+    <div>
+      <%= f.select :category, [["小説"], ["ライトノベル"], ["実用書"], ["その他"]] %>
+    </div>
+  </div>
   <div id="evaluate_stars">
     <label>評価</label>
   </div>
