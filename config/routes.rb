@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'categories/edit'
   devise_for :users
   get 'search', to: 'searchs#search'
+  get 'search_book' => 'books#search_book'
 
   resources :users,only: [:show,:index,:edit,:update] do
     resources :relationships, only: [:create, :destroy]

@@ -25,6 +25,10 @@ class Book < ApplicationRecord
 		end
 	end
 
+	def self.search(search_word)
+		Book.where(['category LIKE ?', "#{search_word}"])
+	end
+
 	validates :title, presence: true
 	validates :body, presence: true, length: {maximum: 200}
 end
