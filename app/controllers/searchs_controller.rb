@@ -2,16 +2,18 @@ class SearchsController < ApplicationController
 
 def search
   @range = params[:range]
-  search = params[:search]
-  word = params[:word]
-  
+  keyword = params[:keyword]
+
   if @range == '1'
-    @user = User.search(search,word)
+    @user = User.search(@range, keyword)
   elsif @range == '2'
-    @book = Book.search(search,word)
+    @book = Book.search(@range, keyword)
+  elsif @range == '3'
+    @book = Book.search(@range, keyword)
   else
     redirect_back(fallback_location: root_path)
   end
 end
+
 
 end

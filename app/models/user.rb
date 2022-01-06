@@ -26,19 +26,14 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
-  def self.search(search,word)
-    if search == "forward_match"
-      @user = User.where("name LIKE?", "#{word}")
-    elsif search == "backward_match"
-      @user = User.where("name LIKE?", "%#{word}")
-    elsif search == "perfect_match"
-      @user = User.where("#{word}")
-    elsif search == "partial_match"
-      @user = User.where("name LIKE?", "%#{word}%")
+  def self.search(range, keyword)
+    if range == "1"
+      @user = User.where("name LIKE?", "#{keyword}")
     else
       @user = User.all
     end
   end
+
 
 
   attachment :profile_image, destroy: false

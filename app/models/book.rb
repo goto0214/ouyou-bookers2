@@ -13,21 +13,14 @@ class Book < ApplicationRecord
 	scope :latest, -> {order(created_at: :desc)}
 	scope :star, -> {order(evaluation: :desc)}
 
-	def self.search(search, word)
-		if search == "forward_match"
-			@book = Book.where("title LIKE?", "#{word}")
-		elsif search == "backward_match"
-    	@book = Book.where("title LIKE?", "%#{word}")
-		elsif search == "perfect_match"
-			@book = Book.where("#{word}")
-		elsif search == "partial_match"
-			@book = Book.where("title LIKE?", "%#{word}%")
+	def self.search(range, keyword)
+		if range == "2"
+			@book = Book.where("title LIKE?", "#{keyword}")
+		elsif range == "3"
+    	@book = Book.where("category LIKE?", "#{keyword}")
 		end
 	end
 
-	def self.search(search_word)
-		Book.where(['category LIKE ?', "#{search_word}"])
-	end
 
 	validates :title, presence: true
 	validates :body, presence: true, length: {maximum: 200}

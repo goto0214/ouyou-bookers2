@@ -55,12 +55,6 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def search_book
-    @book = Book.new
-    @books = Book.search(params[:keyword])
-    @user = current_user
-  end
-
 
 
 
