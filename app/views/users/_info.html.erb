@@ -49,8 +49,12 @@
   <% end %>
   <tr>
     <th>
-      <% if current_user != @user %>
-        <%= link_to 'Chat', chat_path(@user.id) %>
+      <% if current_user.followers?(user) %>
+        <% if current_user.following?(user) %>
+          <% if current_user != user %>
+            <%= link_to 'Chat', chat_path(user.id) %>
+          <% end %>
+        <% end %>
       <% end %>
     </th>
     <th></th>

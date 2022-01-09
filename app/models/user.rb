@@ -30,6 +30,10 @@ class User < ApplicationRecord
     followings.include?(user)
   end
 
+  def followers?(user)
+    followers.include?(user)
+  end
+
   def self.search(range, keyword)
     if range == "1"
       @user = User.where("name LIKE?", "#{keyword}")
