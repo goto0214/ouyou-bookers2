@@ -47,6 +47,14 @@
     </tr>
     <% end %>
   <% end %>
+  <tr>
+    <th>
+      <% if current_user != @user %>
+        <%= link_to 'Chat', chat_path(@user.id) %>
+      <% end %>
+    </th>
+    <th></th>
+  </tr>
 </table>
 
 <div class='row'>
