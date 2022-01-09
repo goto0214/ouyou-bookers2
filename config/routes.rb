@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
   get 'categories/index'
   get 'categories/edit'
   devise_for :users
