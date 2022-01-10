@@ -21,6 +21,9 @@
             <%= render "favorites/favorite-btn", book: @index %>
           </td>
           <td class="book-evaluation" data-score="<%= @index.evaluation %>"></td>
+          <td>
+            <p class="far fa-eye"></p><%= @index.impressions_count %>
+          </td>
           <% if @index.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@index), class: "btn btn-sm btn-success edit_book_#{@index.id}" %></td>
             <td><%= link_to 'Destroy', book_path(@index), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@index.id}"%></td>

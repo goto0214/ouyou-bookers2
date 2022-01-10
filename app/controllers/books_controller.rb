@@ -1,10 +1,15 @@
 class BooksController < ApplicationController
+  impressionist :actions=> [:show]
 
   def show
-    @index = Book.find(params[:id])
+
+    @a = Book.find(params[:id])
+    impressionist(@a, nil, unique: [:request_hash])
+    @index = @a
     @user = @index.user
     @book = Book.new
     @book_comment = BookComment.new
+
   end
 
   def index
